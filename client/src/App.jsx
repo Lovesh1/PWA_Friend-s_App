@@ -7,7 +7,7 @@ function App() {
   const [FriendID, setFriendID] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setloading] = useState(false);
-  const [error, seterror] = useState(null)
+  const [error, seterror] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +23,7 @@ function App() {
      })
       
      const data = await res.json()
-
+     console.log(data)
      if(data.success == false){
       seterror(data.message);
       setloading(false);

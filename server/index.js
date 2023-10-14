@@ -18,7 +18,7 @@ app.listen(process.env.PORT, () => {
 });
 
 
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
     const message = err.message || "Internal service error";
  
