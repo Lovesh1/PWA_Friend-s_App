@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="max-w-lg mx-auto p-3">
-      <h1 className='text-bold text-3xl text-center my-4'>Login and Add your Friend</h1>
+      <h1 className='text-bold text-3xl text-center my-4'> Add your Friend</h1>
 
   
       <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
@@ -50,7 +50,7 @@ function App() {
         
           <input type="password" className="p-3 rounded-xl border border-slate-600 outline-none" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
        
-          <button disabled={loading} className='bg-slate-600 text-white p-3 rounded-xl hover:opacity-90 disabled:opacity-80'>{loading ? 'Loading..': 'Sign Up'} </button>
+          <button disabled={loading} className='bg-slate-600 text-white p-3 rounded-xl hover:opacity-90 disabled:opacity-80'>{loading ? 'Loading..': 'Add friend'} </button>
       </form>
 
            {
