@@ -20,8 +20,8 @@ function App() {
          'Content-Type': 'application/json',
        },
        body: JSON.stringify({ID, FriendID, password}),
-     }).then(response => response.json())
-      .then(data => console.log(data))
+     })
+      
      const data = await res.json()
 
      if(data.success == false){
