@@ -1,30 +1,18 @@
-import express from'express'
-const app = express();
-import dotenv from'dotenv'
-dotenv.config()
+import express from 'express'
+import dotenv from 'dotenv'
 import mongoose from "mongoose"
-app.use(express.json());
 import useRouter from './routes/user.router.js'
+dotenv.config()
+const app = express();
+app.use(express.json());
 
-console.log(process.env.CONNECTION_STRING)
-mongoose.connect(process.env.CONNECTION_STRING).then(() =>{
+app.use("/", useRouter)
+
+
+mongoose.connect(process.env.CONNECTION_STRING, { dbName: "PWA_Text" }).then(() => {
     console.log("Connected to database")
-}).catch((err) => {console.log(err)}) 
-
-app.use("/server/route", useRouter)
+}).catch((err) => { console.log(err) })
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port:${process.env.PORT}`);
 });
-
-
-app.use((err, req, res, next) => {
-    const statusCode = err.statusCode || 500;
-    const message = err.message || "Internal service error";
- 
-   return res.status(statusCode).json({
-         success: false,
-         statusCode,
-         message,
-    })
- })
